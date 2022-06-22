@@ -6,7 +6,10 @@ include config.mk
 SRC = drw.c dwm.c util.c
 OBJ = ${SRC:.c=.o}
 
-all: options dwm
+DSKDIR = /usr/share/xsessions
+DSK = $(DSKDIR)dwm.desktop
+
+all: config.h $(DSK) clean install
 
 options:
 	@echo dwm build options:
@@ -25,6 +28,11 @@ config.h:
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
 
+$(DSK): dwm.desktop
+	echo "Validating Desktop File"
+	desktop-file-validate dwm.desktop
+	sudo cp dwm.desktop $(DSKDIR)
+
 clean:
 	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
 
@@ -36,7 +44,7 @@ dist: clean
 	gzip dwm-${VERSION}.tar
 	rm -rf dwm-${VERSION}
 
-install: all
+install: options dwm
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
@@ -47,5 +55,7 @@ install: all
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
+
+
 
 .PHONY: all options clean dist install uninstall
