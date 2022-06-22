@@ -1601,6 +1601,8 @@ setup(void)
 	XSelectInput(dpy, root, wa.event_mask);
 	grabkeys();
 	focus(NULL);
+
+	system("slisp ~/Scripts/Startup.slisp");
 }
 
 
