@@ -46,3 +46,20 @@ Configuration
 -------------
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+
+Maintenance
+-------------
+To merge from the upstream repo, ensure that you have an upstream branch set:
+
+    git remote -v
+
+(This should display 4 remotes, https://github.com/j624364/dwm.git and git://git.suckless.org/dwm, each with a fetch and push)
+
+If you do not have these, add the suckless git repository to the git repo:
+
+    git remote add upstream git://git.suckless.org/dwm
+
+To pull from the upstream repo, enter the command:
+
+    git pull upstream master
+
