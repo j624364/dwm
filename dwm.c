@@ -2014,6 +2014,13 @@ updatestatus(void)
 {
 	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
 		strcpy(stext, "dwm-"VERSION);
+
+	for (size_t i = 0; i < sizeof(stext); i++)
+	{
+		if (stext[i] == '\n')
+			stext[i] = ' ';
+	}
+
 	drawbar(selmon);
 }
 
