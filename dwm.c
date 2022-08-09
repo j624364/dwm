@@ -1613,6 +1613,7 @@ setup(void)
 	focus(NULL);
 
 	system("slisp ~/Scripts/Startup.slisp");
+	system("slisp ~/Scripts/DwmStartup.slisp");
 }
 
 
