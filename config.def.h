@@ -26,7 +26,10 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = {
+	"1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+	"11", "12", "13", "14", "15", "16", "17", "18", "19", "Desktop"
+};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -58,6 +61,11 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+#define ALTTAGKEYS(KEY,TAG) \
+	{ MODKEY|Mod1Mask,                       KEY, view,       {.ui = 1 << TAG} }, \
+	{ MODKEY|Mod1Mask|ControlMask,           KEY, toggleview, {.ui = 1 << TAG} }, \
+	{ MODKEY|Mod1Mask|ShiftMask,             KEY, tag,        {.ui = 1 << TAG} }, \
+	{ MODKEY|Mod1Mask|ControlMask|ShiftMask, KEY, toggletag,  {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -89,8 +97,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	// { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
@@ -105,6 +113,17 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_0,                      9)
+	ALTTAGKEYS(                     XK_1,                      10)
+	ALTTAGKEYS(                     XK_2,                      11)
+	ALTTAGKEYS(                     XK_3,                      12)
+	ALTTAGKEYS(                     XK_4,                      13)
+	ALTTAGKEYS(                     XK_5,                      14)
+	ALTTAGKEYS(                     XK_6,                      15)
+	ALTTAGKEYS(                     XK_7,                      16)
+	ALTTAGKEYS(                     XK_8,                      17)
+	ALTTAGKEYS(                     XK_9,                      18)
+	ALTTAGKEYS(                     XK_0,                      19)
 };
 
 /* button definitions */
