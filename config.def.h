@@ -113,7 +113,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	TAGKEYS(                        XK_0,                      9)
+	ALTTAGKEYS(                     XK_0,                      9)
 	ALTTAGKEYS(                     XK_1,                      10)
 	ALTTAGKEYS(                     XK_2,                      11)
 	ALTTAGKEYS(                     XK_3,                      12)
@@ -123,7 +123,7 @@ static Key keys[] = {
 	ALTTAGKEYS(                     XK_7,                      16)
 	ALTTAGKEYS(                     XK_8,                      17)
 	ALTTAGKEYS(                     XK_9,                      18)
-	ALTTAGKEYS(                     XK_0,                      19)
+	TAGKEYS(                        XK_0,                      19)
 };
 
 /* button definitions */
