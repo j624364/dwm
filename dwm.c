@@ -1803,8 +1803,8 @@ setup(void)
 	grabkeys();
 	focus(NULL);
 
-	system("slisp ~/Scripts/Startup.slisp");
-	system("slisp ~/Scripts/DwmStartup.slisp");
+	system("~/Scripts/Startup.sh");
+	system("~/Scripts/DwmStartup.sh");
 }
 
 
