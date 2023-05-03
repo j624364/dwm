@@ -150,3 +150,6 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
+void on_setup() {
+	system("sh ~/Scripts/DwmStartup.sh");
+}

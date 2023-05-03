@@ -1803,7 +1803,7 @@ setup(void)
 	grabkeys();
 	focus(NULL);
 
-	system("sh ~/Scripts/DwmStartup.sh");
+	on_setup();
 }
 
 
