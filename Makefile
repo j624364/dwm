@@ -9,6 +9,8 @@ OBJ = ${SRC:.c=.o}
 DSKDIR = /usr/share/xsessions
 DSK = $(DSKDIR)dwm.desktop
 
+DESKTOP_FILE=/usr/share/xsessions/dwm.desktop
+
 all: config.h $(DSK) clean install
 
 options:
@@ -44,13 +46,16 @@ dist: clean
 	gzip dwm-${VERSION}.tar
 	rm -rf dwm-${VERSION}
 
-install: options dwm
+install: options dwm $(DESKTOP_FILE)
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f dwm ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/dwm
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
+
+$(DESKTOP_FILE): dwm.desktop
+	sudo cp dwm.desktop $(DESKTOP_FILE)
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
