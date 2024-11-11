@@ -151,5 +151,5 @@ static Button buttons[] = {
 };
 
 void on_setup() {
-	system("sh ~/Scripts/DwmStartup.sh");
+	system("sh ~/Scripts/startup/DwmStartup.sh");
 }
